@@ -1,0 +1,59 @@
+>> f=imread('Image A.jpg');
+>> g=imread('Image B.jpg');
+>> cpselect(f,g)
+变量已在基础工作区中创建。
+>> fixedPoints
+
+fixedPoints =
+
+   1.0e+03 *
+
+    0.9322    0.2744
+    0.2154    0.7455
+    0.9424    0.8479
+    1.7053    0.9605
+    0.6352    1.3957
+    0.9476    1.4725
+    2.0279    1.8412
+
+>> movingPoints
+
+movingPoints =
+
+   1.0e+03 *
+
+    0.9930    0.7415
+    0.3827    1.3853
+    1.1740    1.2713
+    1.8916    1.2176
+    0.9729    1.9083
+    1.3216    1.8882
+    2.4884    1.9620
+
+>> tform=cp2tform(movingPoints,fixedPoints,'affine');
+>> help visreg
+
+未找到 visreg。
+
+请使用帮助浏览器的搜索字段搜索文档，或者
+键入 "help help" 获取有关帮助命令选项的信息，例如方法的帮助。
+
+>> f1=imtransform(f,tform);
+>> imshow(f1)
+警告: 图像太大，无法在屏幕上显示；将以 17% 显示 
+> In images.internal.initSize (line 71)
+  In imshow (line 336) 
+>> imshow(g)
+警告: 图像太大，无法在屏幕上显示；将以 33% 显示 
+> In images.internal.initSize (line 71)
+  In imshow (line 336) 
+>> figure(1)
+>> subplot 121
+>> imshow(f1)
+>> subplot 122
+>> imshow(g)
+>> figure(1)
+subplot 121
+imshow(f1)
+subplot 122
+imshow(g)
